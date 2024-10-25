@@ -1,0 +1,24 @@
+// life up to 9 cells created by waving patterns in 
+
+const garden = [
+  {"pattern":"ooo..","binary":28,"periode":11,"speed":0.36363636363636365,
+  "mutations" ["ooooo.o.oo...o..oo............","ooooo...oooooo..oo..","o......","ooo...oooo...o..oo..........",
+     "ooooo.o..oo..o..oo","ooooo...ooo.ooo.oo....","ooo.o.......","ooooo.ooo....o..oo............","ooooo...ooo.o...oo..","ooo......."]},{"pattern":"ooo.o","binary":29,"periode":11,"speed":0.36363636363636365,
+  "mutations" ["ooooo.ooo....o..oo............","ooooo...ooo.o...oo..","ooo.......","ooooo.o.oo...o..oo..........","ooooo...oooooo..oo",
+     "o....","ooo...oooo...o..oo........","ooooo.o..oo..o..oo............","ooooo...ooo.ooo.oo..","ooo.o....."]},
+{"pattern":"o..oo.","binary":38,"periode":4,"speed":1,"mutations":["ooooo...........","ooooo...ooo...o..oo.","o..oo....."]},{"pattern":"ooooo.","binary":62,"periode":4,"speed":1,"mutations":["ooooo...ooo...o..oo...........","o..oo.","ooooo....."]},{"pattern":"o..oo...","binary":152,"periode":5,"speed":1.6,"mutations":["ooo..oo...","ooooo.o.......","ooooo.............","o..oo."]},{"pattern":"ooo..oo.","binary":230,"periode":5,"speed":-0.8,"mutations":["ooooo.o.............","ooooo.....","o..oo.......","ooo..oo..........."]},{"pattern":"ooo.ooo.","binary":238,"periode":4,"speed":1,
+    "mutations":["ooooo.ooo.ooo...o..oo.........","ooooo...ooo.ooo.o..oo.............","ooo.ooo..."]},
+{"pattern":"ooooo...","binary":248,"periode":5,"speed":-0.8,"mutations":["o..oo.............","ooo..oo...","ooooo.o.......","ooooo............."]},{"pattern":"ooooo.o.","binary":250,"periode":5,"speed":-0.8,"mutations":["ooooo.","o..oo...","ooo..oo.......","ooooo.o..........."]},{"pattern":"o.....oo.","binary":262,"periode":8,"speed":0,
+  "mutations" ["ooooo.............","ooooo...o...oo...o..oo","ooo..oo....","ooo.oo.o........","ooooo.ooo...........","ooooo...ooo......o..oo..",
+   "o.....oo......"]},
+{"pattern":"ooo.oo.o.","binary":474,"periode":8,"speed":0,"
+  mutations" ["ooooo.ooo.........","ooooo...ooo......o..oo","o.....oo....","ooooo...........","ooooo...o...oo...o..oo............",
+    "ooo..oo..","ooo.oo.o......"]},
+{"pattern":"ooooo....","binary":496,"periode":8,"speed":0,
+   "mutations" ["ooooo...o...oo...o..oo..........","ooo..oo","ooo.oo.o....","ooooo.ooo.......","ooooo...ooo......o..oo............",
+      "o.....oo..","ooooo........."]},
+{"pattern":"ooooo.ooo","binary":503,"periode":8,"speed":0,
+  "mutations" ["ooooo...ooo......o..oo..........","o.....oo","ooooo.......","ooooo...o...oo...o..oo........","ooo..oo............",
+  "ooo.oo.o..","ooooo.ooo....."]}
+];
+
