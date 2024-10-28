@@ -1,0 +1,52 @@
+#head {
+  background-color: blue;
+  color: grey;
+  height: 4em;
+}
+
+#head button {
+  background-color: transparent;
+  border: none;
+  color: grey;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#grid {
+ height: 70vh;
+ width: 70vw;
+ border: solid black;
+ background-color: transparent;
+}
+
+#footer {
+ position: absolute;
+ bottom: 0em;
+ left: 0em;
+ width: 100vw;
+ background-color: lightgrey;
+}
+
+.cell {
+ display: inline-block;
+ //border: solid black 1px;
+ height: 1vh;
+ width: 0.5vw;
+ background-color: white; 
+}
+
+#speed {
+  visibility: hidden;
+  background-color: blue;
+  color: white;
+  font-size: 2em; 
+  width: 100vw;
+}
+
+#settings {
+  visibility: hidden;
+  background-color: blue;
+  color: white;
+  font-size: 2em; 
+  width: 100vw;
+}

@@ -1,6 +1,6 @@
 const Zoo = [
   {"pattern":".....o..oo....","binary":-304,"periode":8,"speed":0.625,
-  "mutations" ["ooo.....oo.ooo...oo...o..oo.....","ooooo.o....ooooo.o..ooo..oo.........","ooooo...ooo...oo...ooo.oo.o.............",
+  "mutations": ["ooo.....oo.ooo...oo...o..oo.....","ooooo.o....ooooo.o..ooo..oo.........","ooooo...ooo...oo...ooo.oo.o.............",
      "o..ooo..oo.ooo..","ooooo.oo.o.ooooo......o..oo.......","ooooo...oooooooo...o.....oo...........","o..oo...."]},    
   {"pattern":".....o..oo.ooo","binary":-311,"periode":8,"speed":0.625,
    "mutations": ["ooo.....oo.ooooo......o..oo.....","ooooo.o....ooooo...o.....oo.........","ooooo...ooo...oo...o..oo..",

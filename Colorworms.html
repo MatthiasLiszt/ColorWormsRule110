@@ -1,12 +1,38 @@
 <html>
 <body>
+<link rel="stylesheet" href="colorworms.css">
+<div id="head">
+  <button>Representation</button>
+  <button onclick='SpeedMenu()'> Speed </button>
+  <button onclick='SettingsMenu()'>Settings</button>
+  <button onclick = 'initialize()'>Initialize</button>
+  <button>Search Life</button>
+  <button>Info</button>
+</div>
+<div id='speed'>
+  <span onclick="decreaseSpeed()">&lt;</span>
+  <span id='currentspeed'>.</span>
+  <span onclick="increaseSpeed()">&gt;</span>
+  <span onclick="CloseMenu()">x</span>
+</div>
+<div id = 'settings'>
+  <span onclick='blockCorrection()'>block correction</span>
+  <span id="blockCorrection">.</span>
+  <span onclick="CloseMenu()">x</span>
+</div>
 <div id="grid"></div>	
-<p>seems that gliders in rule 110 can only exist in repeating backgrounds called ethers </p>
-<p>the most researched background is 1111100 0100110</p>
+
 <script src="colorworms.js"></script>
+<script src="grid.js"></script>
 <script src="Zoo.json"></script>
 <script>
-   const GRID = document.getElementById('grid');      
+   const GRID = document.getElementById('grid');    
+   let MODE = 'basic';  
+   fillGrid();
 </script>
+<div id = "footer">
+  <p>seems that gliders in rule 110 can only exist in repeating backgrounds called ethers </p>
+  <p>the most researched background is 1111100 0100110</p>
+</div>
 </body>
 </html>
