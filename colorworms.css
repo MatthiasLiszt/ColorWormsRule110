@@ -35,18 +35,15 @@
  background-color: white; 
 }
 
-#speed {
+.submenu {
   visibility: hidden;
   background-color: blue;
   color: white;
-  font-size: 2em; 
+  font-size: 1px; 
   width: 100vw;
 }
 
-#settings {
-  visibility: hidden;
-  background-color: blue;
-  color: white;
-  font-size: 2em; 
-  width: 100vw;
+button a {
+  text-decoration: none;
+  color: grey;
 }

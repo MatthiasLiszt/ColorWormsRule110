@@ -6,18 +6,24 @@
   <button onclick='SpeedMenu()'> Speed </button>
   <button onclick='SettingsMenu()'>Settings</button>
   <button onclick = 'initialize()'>Initialize</button>
-  <button>Search Life</button>
-  <button>Info</button>
+  <button onclick = 'SearchLifeMenu()'>Search Life</button>
+  <button><a href="README.md">Info</a></button>
 </div>
-<div id='speed'>
+<div id='speed' class="submenu">
   <span onclick="decreaseSpeed()">&lt;</span>
   <span id='currentspeed'>.</span>
   <span onclick="increaseSpeed()">&gt;</span>
   <span onclick="CloseMenu()">x</span>
 </div>
-<div id = 'settings'>
+<div id = 'settings' class="submenu">
   <span onclick='blockCorrection()'>block correction</span>
   <span id="blockCorrection">.</span>
+  <span onclick="CloseMenu()">x</span>
+</div>
+<div id = 'searchlife' class="submenu">
+  <span onclick="search14bitLife()" >replace whole ether block - </span>
+  <span onclick="searchSmallLife()">cut and insert smaller patterns - </span>
+  <span><a href="Zoo.json">view already found</a></span>
   <span onclick="CloseMenu()">x</span>
 </div>
 <div id="grid"></div>	
@@ -28,7 +34,7 @@
 <script>
    const GRID = document.getElementById('grid');    
    let MODE = 'basic';  
-   fillGrid();
+   initialize();
 </script>
 <div id = "footer">
   <p>seems that gliders in rule 110 can only exist in repeating backgrounds called ethers </p>

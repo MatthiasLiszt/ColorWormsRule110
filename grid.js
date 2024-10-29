@@ -2,6 +2,15 @@ const CellsInBasicMode = (28 * 5) * (28 * 2.5);
 let World = [];
 let Speed = 0;
 let BlockCorrection = false;
+let NewLife = [];
+let Periode = 0;
+
+// console hook 
+/*
+console.log = function() {
+  GRID.textContent += '*' + Array.from(arguments).join('') + '\n';
+};
+*/
 
 function fillGrid(){
   let cells = [];
@@ -10,10 +19,13 @@ function fillGrid(){
     cells.push(cell);
   }
   GRID.innerHTML = cells.join('');
-  initialize();
 }
 
 function initialize() {
+  Periode = 0;
+  GRID.style.overflowX = 'initial';
+  GRID.style.overflowY = 'initial';
+  fillGrid();
   if(MODE == 'basic') {
     initEarth = Array(CellsInBasicMode / 14).fill(Ether).join('');	
     World = initEarth.split('');
@@ -25,10 +37,20 @@ function initialize() {
 
 function update() {
   if(Speed <=0) return;
+  ++Periode;
   for(let i = 0; i < Speed; ++i) {
     applyRule110(World);
   }  
+  const ethermove = World.join('').indexOf(Ether);
+  if(BlockCorrection) {
+    const Cut = World.join('').slice(ethermove, CellsInBasicMode - Ether.length + ethermove);
+    World = Periode % 4 == 0 ? (Cut + Ether).split('') : (Ether + Cut).split('');
+    if(World.length !== CellsInBasicMode) {
+      console.log('error: world size changed');
+    }
+  }
   const etherfree = World.join('').replaceAll(Ether, Array(Ether.length).fill('.').join(''));
+  
   if(MODE == 'basic') {
       for(let i = 0; i < CellsInBasicMode; ++i) {
         const color = etherfree[i] == '.' ? 'lightgrey' : 'black';
@@ -43,6 +65,7 @@ function changeCell(n) {
 }
 
 function SpeedMenu(){
+  document.getElementById('speed').style.fontSize = '2em';
   document.getElementById('speed').style.visibility = 'visible';
   document.getElementById('currentspeed').textContent = Speed; 
 }
@@ -50,6 +73,10 @@ function SpeedMenu(){
 function CloseMenu(){
   document.getElementById('speed').style.visibility = 'hidden';
   document.getElementById('settings').style.visibility = 'hidden';
+  document.getElementById('searchlife').style.visibility = 'hidden';
+  document.getElementById('speed').style.fontSize = '1px';
+  document.getElementById('settings').style.fontSize = '1px';
+  document.getElementById('searchlife').style.fontSize = '1px';
 }
 
 function decreaseSpeed(){
@@ -68,8 +95,30 @@ function blockCorrection() {
 }
 
 function SettingsMenu(){
+  document.getElementById('settings').style.fontSize = '2em';
   document.getElementById('settings').style.visibility = 'visible';
   document.getElementById('blockCorrection').textContent = BlockCorrection ? 'on' : 'off';
+}
+
+function SearchLifeMenu(){
+  document.getElementById('searchlife').style.fontSize = '2em';
+  document.getElementById('searchlife').style.visibility = 'visible';
+}
+
+function search14bitLife(){
+  GRID.style.overflowX = 'hidden';
+  GRID.style.overflowY = 'scroll';
+  GRID.textContent = '';
+  NewLife = searchFor14bitLife();
+  GRID.textContent = JSON.stringify(NewLife);
+}
+
+function searchSmallLife(){
+  GRID.style.overflowX = 'hidden';
+  GRID.style.overflowY = 'scroll';
+  GRID.textContent = '';
+  NewLife = searchForLife(13, 42, webInPattern);
+  GRID.textContent = JSON.stringify(NewLife);
 }
 
 setInterval(update, 1000);
