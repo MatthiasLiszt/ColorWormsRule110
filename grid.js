@@ -37,14 +37,14 @@ function initialize() {
 
 function update() {
   if(Speed <=0) return;
-  ++Periode;
   for(let i = 0; i < Speed; ++i) {
     applyRule110(World);
+    ++Periode;
   }  
   const ethermove = World.join('').indexOf(Ether);
   if(BlockCorrection) {
     const Cut = World.join('').slice(ethermove, CellsInBasicMode - Ether.length + ethermove);
-    World = Periode % 4 == 0 ? (Cut + Ether).split('') : (Ether + Cut).split('');
+    World = Periode % 7 == 0 ? (Ether + Cut).split('') : (Cut + Ether).split('');
     if(World.length !== CellsInBasicMode) {
       console.log('error: world size changed');
     }
@@ -79,14 +79,11 @@ function CloseMenu(){
   document.getElementById('searchlife').style.fontSize = '1px';
 }
 
-function decreaseSpeed(){
-  Speed = Speed > 0 ? --Speed : Speed;
-  document.getElementById('currentspeed').textContent = Speed;
-}
-
-function increaseSpeed(){
-  ++Speed;
-  document.getElementById('currentspeed').textContent = Speed;
+function changeSpeed(speed) {
+  if ((Speed + speed) >= 0) {
+    Speed += speed;
+    document.getElementById('currentspeed').textContent = Speed;  
+  }
 }
 
 function blockCorrection() {
