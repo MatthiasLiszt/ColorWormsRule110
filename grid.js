@@ -39,16 +39,19 @@ function update() {
   if(Speed <=0) return;
   for(let i = 0; i < Speed; ++i) {
     applyRule110(World);
+    const ethermove = World.join('').indexOf(Ether);
+    if(BlockCorrection) {
+      const Cut = World.join('').slice(ethermove, CellsInBasicMode - Ether.length + ethermove);
+      World = Periode % 2 == 0 ? (Ether + Cut).split('') : (Cut + Ether).split('');
+      World = Periode % 7 == 0 ? (Ether + Ether + Cut).split('') : World;
+      //World = (Cut + Ether).split('');
+      if(World.length !== CellsInBasicMode) {
+        console.log('error: world size changed');
+      }
+    }
     ++Periode;
   }  
-  const ethermove = World.join('').indexOf(Ether);
-  if(BlockCorrection) {
-    const Cut = World.join('').slice(ethermove, CellsInBasicMode - Ether.length + ethermove);
-    World = Periode % 7 == 0 ? (Ether + Cut).split('') : (Cut + Ether).split('');
-    if(World.length !== CellsInBasicMode) {
-      console.log('error: world size changed');
-    }
-  }
+
   const etherfree = World.join('').replaceAll(Ether, Array(Ether.length).fill('.').join(''));
   
   if(MODE == 'basic') {
